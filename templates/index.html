@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Heart Attack Detection - Welcome</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <!-- Wrapper centers content only for welcome -->
+  <div class="welcome-wrapper">
+    <div class="container">
+      <h1>Welcome to our <span>Heart Attack Detection</span> using AI</h1>
+      <button onclick="enterSite()">Enter</button>
+    </div>
+  </div>
+
+  <!-- ECG Wave Background -->
+  <div class="ecg-background">
+    <div class="wave-container">
+      <svg viewBox="0 0 1200 100" preserveAspectRatio="none">
+        <path d="M0,50 
+                 L50,50 L60,45 L70,50 L80,30 L90,80 L100,50
+                 L150,50 L160,45 L170,50 L180,25 L190,85 L200,50
+                 L250,50 L260,45 L270,50 L280,30 L290,80 L300,50
+                 L350,50 L360,45 L370,50 L380,25 L390,85 L400,50
+                 L450,50 L460,45 L470,50 L480,30 L490,80 L500,50
+                 L550,50 L560,45 L570,50 L580,25 L590,85 L600,50
+                 L650,50 L660,45 L670,50 L680,30 L690,80 L700,50
+                 L750,50 L760,45 L770,50 L780,25 L790,85 L800,50
+                 L850,50 L860,45 L870,50 L880,30 L890,80 L900,50
+                 L950,50 L960,45 L970,50 L980,25 L990,85 L1000,50
+                 L1050,50 L1060,45 L1070,50 L1080,30 L1090,80 L1100,50
+                 L1150,50 L1160,45 L1170,50 L1180,25 L1190,85 L1200,50" />
+      </svg>
+    </div>
+  </div>
+
+  <!-- ✅ Updated Script -->
+  <script>
+    function enterSite() {
+      window.location.href = "/info";  // Changed from /main to /info
+    }
+  </script>
+</body>
+</html>

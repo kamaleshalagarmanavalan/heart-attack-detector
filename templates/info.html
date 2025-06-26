@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Heart Attack Info</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #0d0d0d;
+      color: white;
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      line-height: 1.6;
+      padding: 30px;
+    }
+
+    h1, h2 {
+      color: #cc0000;
+    }
+
+    .section {
+      margin-bottom: 40px;
+    }
+
+    ul {
+      margin-top: 10px;
+      padding-left: 20px;
+    }
+
+    li, p {
+      color: #f2f2f2;
+    }
+
+    a {
+      color: #ff6666;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .image-block img {
+      max-width: 350px;
+      margin-top: 15px;
+      margin-right: 20px;
+      border-radius: 6px;
+      border: 1px solid #444;
+    }
+
+    .button-container {
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    .button-container a button {
+      padding: 14px 28px;
+      font-size: 1.1em;
+      background-color: #cc0000;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .button-container a button:hover {
+      background-color: #a00000;
+    }
+
+    /* Fade-In on Scroll */
+    .fade-section {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 1s ease-out, transform 1s ease-out;
+    }
+
+    .fade-section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="section fade-section">
+    <h1>🫀 What is a Heart Attack?</h1>
+    <p>A heart attack, also called a <strong>myocardial infarction</strong>, happens when blood can’t reach a part of your heart. This usually occurs because a blood vessel gets blocked, often by a clot forming on top of fatty buildup (plaque) in the artery.</p>
+    <p>Without enough blood and oxygen, the heart muscle begins to suffer. If the blockage isn’t cleared soon, that part of the heart may be damaged permanently or stop working altogether.</p>
+  </div>
+
+  <div class="section fade-section">
+    <h2>📊 About the Dataset</h2>
+    <p>This dataset was collected from four sources: Cleveland, Hungary, Switzerland, and Long Beach V. It originally had 76 features, but most research focuses on 14 key attributes.</p>
+    <p>The goal is to predict whether a patient has heart disease:</p>
+    <ul>
+      <li><strong>0</strong> → No heart disease</li>
+      <li><strong>1</strong> → Heart disease present</li>
+    </ul>
+    <p>The dataset on Kaggle was curated by <strong>David Lapp (johnsmith88)</strong>.</p>
+    <p>🔗 <strong>Dataset Source:</strong> 
+      <a href="https://www.kaggle.com/datasets/johnsmith88/heart-disease-dataset" target="_blank">
+        Kaggle - Heart Disease Dataset
+      </a>
+    </p>
+    <p>It includes <strong>1,025 patients</strong> and is <strong>completely clean</strong> — no missing values.</p>
+  </div>
+
+  <div class="section fade-section">
+  <h2>📋 Understanding the Parameters We Collect</h2>
+
+  <h3 style="color:#cc0000;">1. Age</h3>
+  <p>This refers to the age of the patient, ranging from 29 to 77 years old. The average age in this dataset is around 54, indicating that most patients are middle-aged or older. Age is a known risk factor for cardiovascular conditions.</p>
+
+  <h3 style="color:#cc0000;">2. Sex</h3>
+  <p>This column indicates the gender of the patient, where 0 represents female and 1 represents male. In this dataset, approximately 70% of the entries are male, reflecting a common trend in heart disease studies where male patients are more prevalent.</p>
+
+  <h3 style="color:#cc0000;">3. Chest Pain Type (cp)</h3>
+  <p>This field describes the type of chest pain experienced by the patient. It is encoded as integers from 0 to 3, representing different pain types. These are treated as ordinal values, suggesting a ranked intensity or severity related to heart health.</p>
+
+  <h3 style="color:#cc0000;">4. Resting Blood Pressure (trestbps)</h3>
+  <p>This represents the patient’s resting blood pressure measured in mm Hg. Values range from 94 to 200, with an average around 132 mm Hg. Elevated resting blood pressure is a key indicator of cardiovascular strain.</p>
+
+  <h3 style="color:#cc0000;">5. Serum Cholesterol (chol)</h3>
+  <p>This column records the patient’s cholesterol level in mg/dL, ranging from 126 to 564. The average is about 246 mg/dL. Higher values may correlate with increased risk of atherosclerosis and cardiac events.</p>
+
+  <h3 style="color:#cc0000;">6. Fasting Blood Sugar (fbs)</h3>
+  <p>This binary feature indicates whether the patient’s fasting blood sugar exceeds 120 mg/dL. A value of 1 means yes, and 0 means no. Most patients in the dataset have normal levels, but elevated glucose is a risk factor for diabetes and cardiovascular disease.</p>
+
+  <h3 style="color:#cc0000;">7. Resting ECG Results (restecg)</h3>
+  <p>This feature describes the patient’s resting electrocardiogram results. It is a categorical variable with values 0 (normal), 1 (ST-T wave abnormality), and 2 (showing signs of left ventricular hypertrophy). These indicators provide insight into the electrical activity of the heart.</p>
+
+  <h3 style="color:#cc0000;">8. Maximum Heart Rate (thalach)</h3>
+  <p>This measures the highest heart rate achieved during physical exertion, ranging from 71 to 202 bpm. The average in this dataset is about 149 bpm. This parameter reflects the heart’s performance under stress and is used in cardiac fitness evaluations.</p>
+
+  <h3 style="color:#cc0000;">9. Exercise-Induced Angina (exang)</h3>
+  <p>This indicates whether the patient experienced chest pain during exercise. A value of 1 means angina was present, while 0 means it was not. Angina during exertion is a warning sign of restricted blood flow to the heart muscle.</p>
+
+  <h3 style="color:#cc0000;">10. ST Depression (oldpeak)</h3>
+  <p>This shows the level of ST segment depression induced by exercise, compared to rest. Values range from 0.0 to 6.2. Higher levels of depression may indicate underlying ischemia and are valuable in stress testing analysis.</p>
+
+  <h3 style="color:#cc0000;">11. Slope of ST Segment (slope)</h3>
+  <p>This parameter captures the slope of the ST segment during the peak of exercise. Encoded as 0 (upsloping), 1 (flat), and 2 (downsloping), it reflects the shape of the ECG trace, which is used to identify myocardial abnormalities.</p>
+
+  <h3 style="color:#cc0000;">12. Major Vessels Colored by Fluoroscopy (ca)</h3>
+  <p>This field records the number of major blood vessels (0 to 4) visible under fluoroscopy after dye injection. A higher number often indicates better blood circulation. It is considered one of the most critical features in determining heart disease.</p>
+
+  <h3 style="color:#cc0000;">13. Thalassemia (thal)</h3>
+  <p>This feature refers to thalassemia test results, a type of blood disorder. The values are: 1 for fixed defect, 2 for normal, and 3 for reversible defect. Some datasets may encode this differently, so interpretation must match the dataset documentation.</p>
+
+  <h3 style="color:#cc0000;">14. Target</h3>
+  <p>This is the outcome variable that indicates whether the patient has heart disease. A value of 0 means the patient does not have heart disease, while a value of 1 means the presence of heart disease. The dataset is relatively balanced, with about 51% positive cases.</p>
+</div>
+
+
+  <div class="section fade-section">
+    <h2>🤖 Our Model: Bagging Classifier</h2>
+    <p>The <strong>Bagging Classifier</strong>, short for <em>Bootstrap Aggregating</em>, is an ensemble learning technique that builds multiple models on different data subsets and combines their predictions using majority voting.</p>
+    <p>It improves stability and reduces overfitting, making it well-suited for medical prediction tasks like this project.</p>
+  </div>
+
+  <div class="section fade-section">
+    <h2>📈 Model Performance</h2>
+    <p>Our Bagging Classifier achieved an accuracy score of <strong>100%</strong>.</p>
+    <div class="image-block">
+      <img src="{{ url_for('static', filename='images/accuracy.png') }}" alt="Accuracy Score">
+      <img src="{{ url_for('static', filename='images/confusion matrix.png') }}" alt="Confusion Matrix">
+    </div>
+    <p>The confusion matrix confirms all predictions were correct — 50.24% no heart disease, 49.76% with heart disease.</p>
+  </div>
+
+  <div class="section fade-section">
+    <h2>⚠️ Disclaimer</h2>
+    <p>This AI tool is designed as an educational and assistive resource. It is <strong>not a substitute</strong> for professional medical advice, diagnosis, or treatment.</p>
+    <p>Please consult a licensed healthcare provider for any heart-related symptoms. We do not store or share any user data. All input is processed privately during your session.</p>
+  </div>
+
+  <div class="section fade-section">
+  <h2>👨‍💻 About the Developer</h2>
+  <p>Hi, I'm <strong>Kamalesh</strong>, a passionate developer and biomedical engineering graduate with a strong interest in applying Artificial Intelligence to solve real-world healthcare problems.</p>
+  <p>This project — a heart attack prediction system — was built using a <strong>Bagging Classifier</strong> trained on clinical data, with the goal of making preventive heart care more accessible through technology.</p>
+  <p>I believe in combining <strong>tech + medicine</strong> to make a real difference. Feel free to explore the site and see how data can save lives!</p>
+
+  <p>📧 Email Me:
+    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=kamaleshalagarmanavalan@gmail.com" target="_blank" style="color: #ff6666;">
+      kamaleshalagarmanavalan@email.com
+    </a>
+  </p>
+
+  <p style="margin-top: 15px;"><strong>Follow Me:</strong></p>
+  <div style="display: flex; gap: 20px; align-items: center;">
+
+    <!-- LinkedIn -->
+    <a href="https://www.linkedin.com/in/kamaleshalagarmanavalan" target="_blank" title="LinkedIn">
+      <svg width="30" height="30" viewBox="0 0 24 24" fill="#ff6666" xmlns="http://www.w3.org/2000/svg">
+        <path d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.5 8.5h4V24h-4V8.5zM8.5 8.5h3.75v2.1h.05c.5-1 1.7-2.1 3.5-2.1 3.75 0 4.5 2.5 4.5 5.75V24h-4v-7.5c0-1.8-.05-4.1-2.5-4.1s-2.9 1.9-2.9 4v7.6h-4V8.5z"/>
+      </svg>
+    </a>
+
+    <!-- GitHub -->
+    <a href="https://github.com/kamaleshalagarmanavalan" target="_blank" title="GitHub">
+      <svg width="30" height="30" viewBox="0 0 24 24" fill="#ff6666" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.302 
+        3.438 9.8 8.205 11.387.6.113.82-.258.82-.577 
+        0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.757-1.333-1.757-1.09-.744.084-.729.084-.729 
+        1.205.084 1.84 1.236 1.84 1.236 1.07 1.835 2.807 
+        1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.335-5.466-5.93 
+        0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 
+        0 0 1.005-.322 3.3 1.23a11.52 11.52 0 0 1 3-.405c1.02.005 
+        2.045.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23 
+        .645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 
+        1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.435.375.81 
+        1.096.81 2.215 0 1.6-.015 2.89-.015 3.286 
+        0 .315.21.69.825.57C20.565 22.092 24 17.592 24 
+        12.297c0-6.627-5.373-12-12-12"/>
+      </svg>
+    </a>
+  </div>
+</div>
+
+
+
+
+  <div class="button-container fade-section">
+    <a href="/main"><button>Continue to Prediction</button></a>
+  </div>
+
+  <!-- Fade-In Scroll Script -->
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {
+      threshold: 0.15
+    });
+
+    document.querySelectorAll('.fade-section').forEach(section => {
+      observer.observe(section);
+    });
+  </script>
+
+</body>
+</html>

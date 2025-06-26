@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Prediction Result</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="result-container">
+    <h1>Prediction <span class="highlight-red">Result</span></h1>
+
+    <div class="result-box {{ 'high-risk' if risk_level == 'High Risk' else 'low-risk' }}">
+      <p>{{ prediction_text }}</p>
+    </div>
+
+    {% if risk_level == 'High Risk' %}
+    <div class="info-block">
+      <h2>🚨 Causes of Heart Attack</h2>
+      <ul>
+        <li>Blocked coronary arteries</li>
+        <li>High blood pressure & cholesterol</li>
+        <li>Smoking, obesity, diabetes</li>
+        <li>Family history & stress</li>
+      </ul>
+
+      <h2>🩺 Prevention Tips</h2>
+      <ul>
+        <li>Quit smoking and limit alcohol</li>
+        <li>Follow a heart-healthy diet (low sodium & fats)</li>
+        <li>Exercise regularly (at least 30 mins/day)</li>
+        <li>Regular health checkups</li>
+      </ul>
+
+      <h2>🚑 Seek Medical Attention If You Feel:</h2>
+      <ul>
+        <li>Chest pain or tightness</li>
+        <li>Shortness of breath</li>
+        <li>Sudden fatigue or nausea</li>
+      </ul>
+    </div>
+
+    {% else %}
+    <div class="info-block">
+      <h2>❤️ You’re at Low Risk!</h2>
+      <p>Keep your heart healthy by maintaining good habits:</p>
+      <ul>
+        <li>Eat fresh fruits, vegetables & whole grains</li>
+        <li>Stay active and avoid prolonged sitting</li>
+        <li>Sleep well & manage stress</li>
+        <li>Track your BP, sugar, and cholesterol regularly</li>
+      </ul>
+
+      <h2>🧘‍♂️ Lifestyle Tips</h2>
+      <ul>
+        <li>Practice mindfulness or meditation</li>
+        <li>Avoid processed foods</li>
+        <li>Stay hydrated and cut sugar intake</li>
+      </ul>
+    </div>
+    {% endif %}
+
+    <div class="button-group">
+      <a href="/main"><button class="submit-btn">Go Back</button></a>
+      <button class="submit-btn" onclick="window.print()">Download Report</button>
+    </div>
+  </div>
+</body>
+</html> 
