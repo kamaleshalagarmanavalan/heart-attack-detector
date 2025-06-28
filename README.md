@@ -26,9 +26,6 @@ This is a full-stack AI project that predicts a person’s risk of heart attack 
 - Source: [Heart Disease UCI Dataset on Kaggle](https://www.kaggle.com/datasets/johnsmith88/heart-disease-dataset)
 - Cleaned, structured CSV with 1025 patient entries and 14 features.
 
-
----
-
 ## 🔗 Live Demo
 
 🌍 [Visit the Web App]()  
@@ -41,13 +38,9 @@ Hi, I'm **Kamalesh**, a biomedical engineering graduate passionate about buildin
 
 🔗 [LinkedIn](https://www.linkedin.com/in/kamaleshalagarmanavalan) | [GitHub](https://github.com/kamaleshalagarmanavalan)
 
----
-
 ## ⚠️ Disclaimer
 
 This tool is for **educational and assistive** purposes only and should not replace professional medical consultation. No user data is stored or shared.
-
----
 
 ## 🧠 Inspired by
 
