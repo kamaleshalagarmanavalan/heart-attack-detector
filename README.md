@@ -37,6 +37,7 @@ This is a full-stack AI project that predicts a person’s risk of heart attack 
 
 Hi, I'm **Kamalesh**, a biomedical engineering graduate passionate about building AI-powered health tools.  
 📫 [Email Me](https://mail.google.com/mail/?view=cm&fs=1&to=kamaleshalagarmanavalan@gmail.com) 
+
 🔗 [LinkedIn](https://www.linkedin.com/in/kamaleshalagarmanavalan) | [GitHub](https://github.com/kamaleshalagarmanavalan)
 
 ---
