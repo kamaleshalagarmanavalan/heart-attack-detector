@@ -32,7 +32,7 @@ def predict():
                 'gender': int(request.form['gender']),
                 'chest_pain': int(request.form['chest_pain']),
                 'trest_bps': int(request.form['trest_bps']),
-                'cholestorol': int(request.form['cholesterol']),
+                'cholesterol': int(request.form['cholesterol']),
                 'fbs': int(request.form['fbs']),
                 'rest_ecg': int(request.form['rest_ecg']),
                 'heart_rate': int(request.form['heart_rate']),
