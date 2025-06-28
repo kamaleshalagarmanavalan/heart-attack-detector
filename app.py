@@ -5,7 +5,8 @@ import numpy as np
 app = Flask(__name__)
 
 # Load the trained model
-model = pickle.load(open('CARDIO.pkl', 'rb'))
+import joblib
+model = joblib.load('CARDIO.joblib')
 
 # Store user inputs globally (optional, not needed now)
 user_input_data = {}
