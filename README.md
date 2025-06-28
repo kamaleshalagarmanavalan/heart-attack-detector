@@ -1,6 +1,6 @@
 # 🫀 AI-Based Heart Attack Prediction Web App
 
-This is a full-stack AI project that predicts a person’s risk of heart attack based on clinical inputs using a trained machine learning model (Bagging Classifier). Built with **Flask**, styled with a **dark ECG-themed UI**, and deployed for free using **Render**.
+This is a full-stack AI project that predicts a person’s risk of heart attack based on clinical inputs using a trained machine learning model (Bagging Classifier). Built with **Flask**, styled with a **dark ECG-themed UI**, and deployed for free using **Replit**.
 
 
 ## 🚀 Features
@@ -36,6 +36,7 @@ This is a full-stack AI project that predicts a person’s risk of heart attack 
 ## 👨‍💻 About the Developer
 
 Hi, I'm **Kamalesh**, a biomedical engineering graduate passionate about building AI-powered health tools.  
+
 📫 [Email Me](https://mail.google.com/mail/?view=cm&fs=1&to=kamaleshalagarmanavalan@gmail.com) 
 
 🔗 [LinkedIn](https://www.linkedin.com/in/kamaleshalagarmanavalan) | [GitHub](https://github.com/kamaleshalagarmanavalan)
