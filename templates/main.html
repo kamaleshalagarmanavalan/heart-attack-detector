@@ -8,6 +8,16 @@
 <body>
   <div class="form-container">
     <h2><span class="highlight">MYOCARDIAL INFARCTION</span> PREDICTION MODEL</h2>
+    {% if errors %}
+  <div class="error-block">
+    <ul>
+    {% for error in errors %}
+      <li>{{ error }}</li>
+    {% endfor %}
+    </ul>
+  </div>
+{% endif %}
+
     <form method="POST" action="/predict">
       <div class="form-grid">
         <div>
