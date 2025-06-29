@@ -28,7 +28,7 @@ This is a full-stack AI project that predicts a person’s risk of heart attack 
 
 ## 🔗 Live Demo
 
-🌍 [Visit the Web App]()  
+🌍 [Visit the Web App](https://401c602c-9982-4a03-a98c-cbbd31651d34-00-2a4wp7b6cz6oq.sisko.replit.dev/)  
 
 ## 👨‍💻 About the Developer
 
