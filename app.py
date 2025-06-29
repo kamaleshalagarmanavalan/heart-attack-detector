@@ -3,7 +3,7 @@ import pickle
 import numpy as np
 
 app = Flask(__name__)
-model = pickle.load(open('CARDIO.pkl', 'rb'))
+model = joblib.load('CARDIO.joblib')
 
 @app.route('/')
 def home():
