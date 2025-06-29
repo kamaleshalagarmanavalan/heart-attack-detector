@@ -8,109 +8,109 @@
 <body>
   <div class="form-container">
     <h2><span class="highlight">MYOCARDIAL INFARCTION</span> PREDICTION MODEL</h2>
+
     {% if errors %}
-  <div class="error-block">
-    <ul>
-    {% for error in errors %}
-      <li>{{ error }}</li>
-    {% endfor %}
-    </ul>
-  </div>
-{% endif %}
+    <div class="error-block" style="color: red; border: 1px solid red; padding: 10px; margin-bottom: 10px;">
+      <ul>
+        {% for error in errors %}
+          <li>{{ error }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
 
     <form method="POST" action="/predict">
       <div class="form-grid">
         <div>
           <label for="age">AGE</label>
-          <input type="number" name="age" placeholder="Enter your AGE" required>
+          <input type="number" name="age" placeholder="Enter your AGE" value="{{ form_data.age or '' }}" required>
         </div>
         <div>
           <label for="gender">GENDER</label>
           <select name="gender" required>
             <option value="">Enter your GENDER</option>
-            <option value="1">Male</option>
-            <option value="0">Female</option>
+            <option value="1" {% if form_data.gender == '1' %}selected{% endif %}>Male</option>
+            <option value="0" {% if form_data.gender == '0' %}selected{% endif %}>Female</option>
           </select>
         </div>
         <div>
-          <label for="chest_pain">CHEST PAIN TYPE </label>
+          <label for="chest_pain">CHEST PAIN TYPE</label>
           <select name="chest_pain" required>
             <option value="">Enter your CHEST_PAIN TYPE</option>
-            <option value="1">Atypical Angina</option>
-            <option value="2">Non-Anginal Pain</option>
-            <option value="3">Typical Angina</option>
-            <option value="0">Asymptomatic</option>
+            <option value="1" {% if form_data.chest_pain == '1' %}selected{% endif %}>Atypical Angina</option>
+            <option value="2" {% if form_data.chest_pain == '2' %}selected{% endif %}>Non-Anginal Pain</option>
+            <option value="3" {% if form_data.chest_pain == '3' %}selected{% endif %}>Typical Angina</option>
+            <option value="0" {% if form_data.chest_pain == '0' %}selected{% endif %}>Asymptomatic</option>
           </select>
         </div>
         <div>
           <label for="trest_bps">RESTING BP(mm Hg)</label>
-          <input type="number" name="trest_bps" placeholder="Enter your TREST_BPS" required>
+          <input type="number" name="trest_bps" placeholder="Enter your TREST_BPS" value="{{ form_data.trest_bps or '' }}" required>
         </div>
         <div>
           <label for="cholesterol">CHOLESTEROL(mg/dL)</label>
-          <input type="number" name="cholesterol" placeholder="Enter your CHOLESTEROL" required>
+          <input type="number" name="cholesterol" placeholder="Enter your CHOLESTEROL" value="{{ form_data.cholesterol or '' }}" required>
         </div>
         <div>
           <label for="fbs">FASTING BLOOD SUGAR (mg/dL)</label>
           <select name="fbs" required>
              <option value="">Enter your FBS</option>
-             <option value="0">Normal (≤ 120 mg/dL)</option>
-             <option value="1">High (> 120 mg/dL)</option>
+             <option value="0" {% if form_data.fbs == '0' %}selected{% endif %}>Normal (≤ 120 mg/dL)</option>
+             <option value="1" {% if form_data.fbs == '1' %}selected{% endif %}>High (> 120 mg/dL)</option>
           </select>
         </div>
         <div>
           <label for="rest_ecg">RESTING ECG</label>
           <select name="rest_ecg" required>
              <option value="">Enter your REST_ECG</option>
-             <option value="0">Normal</option>
-             <option value="1">ST-T Wave abnormality</option>
-             <option value="2">Left ventricular hypertrophy</option>
+             <option value="0" {% if form_data.rest_ecg == '0' %}selected{% endif %}>Normal</option>
+             <option value="1" {% if form_data.rest_ecg == '1' %}selected{% endif %}>ST-T Wave abnormality</option>
+             <option value="2" {% if form_data.rest_ecg == '2' %}selected{% endif %}>Left ventricular hypertrophy</option>
           </select>
-
         </div>
         <div>
           <label for="heart_rate">HEART RATE</label>
-          <input type="number" name="heart_rate" placeholder="Enter your THALACH" required>
+          <input type="number" name="heart_rate" placeholder="Enter your THALACH" value="{{ form_data.heart_rate or '' }}" required>
         </div>
         <div>
           <label for="exang">EXERCISE INDUCED ANGINA</label>
           <select name="exang" required>
              <option value="">Enter your EXANG</option>
-             <option value="0">No</option>
-             <option value="1">Yes</option>
+             <option value="0" {% if form_data.exang == '0' %}selected{% endif %}>No</option>
+             <option value="1" {% if form_data.exang == '1' %}selected{% endif %}>Yes</option>
           </select>
         </div>
         <div>
           <label for="oldpeak">ST DEPRESSION BY EXERCISE</label>
-          <input type="number" step="any" name="oldpeak" placeholder="Enter your OLDPEAK" required>
+          <input type="number" step="any" name="oldpeak" placeholder="Enter your OLDPEAK" value="{{ form_data.oldpeak or '' }}" required>
         </div>
         <div>
           <label for="slope">SLOPE OF ST SEGMENT</label>
           <select name="slope" required>
              <option value="">Enter your SLOPE</option>
-             <option value="0">Upsloping</option>
-             <option value="1">Flat</option>
-             <option value="2">Downsloping</option>
+             <option value="0" {% if form_data.slope == '0' %}selected{% endif %}>Upsloping</option>
+             <option value="1" {% if form_data.slope == '1' %}selected{% endif %}>Flat</option>
+             <option value="2" {% if form_data.slope == '2' %}selected{% endif %}>Downsloping</option>
           </select>
         </div>
         <div>
           <label for="ca">NO OF MAJOR VESSELS COLORED</label>
           <select name="ca" required>
              <option value="">Enter your CA</option>
-             <option value="0">Normal</option>
-             <option value="1">1</option>
-             <option value="2">2</option>
-             <option value="3">3</option>
+             <option value="0" {% if form_data.ca == '0' %}selected{% endif %}>Normal</option>
+             <option value="1" {% if form_data.ca == '1' %}selected{% endif %}>1</option>
+             <option value="2" {% if form_data.ca == '2' %}selected{% endif %}>2</option>
+             <option value="3" {% if form_data.ca == '3' %}selected{% endif %}>3</option>
           </select>
         </div>
         <div style="grid-column: span 2;">
           <label for="thal">THALASSEMIA (THALLIUM TEST RESULT)</label>
           <select name="thal" required>
              <option value="">Enter your THAL</option>
-             <option value="0">Unknown</option>
-             <option value="1">Normal</option>
-             <option value="2">Fixed</option>
-             <option value="3">Reversible</option>
+             <option value="0" {% if form_data.thal == '0' %}selected{% endif %}>Unknown</option>
+             <option value="1" {% if form_data.thal == '1' %}selected{% endif %}>Normal</option>
+             <option value="2" {% if form_data.thal == '2' %}selected{% endif %}>Fixed</option>
+             <option value="3" {% if form_data.thal == '3' %}selected{% endif %}>Reversible</option>
           </select>        
         </div>
         
