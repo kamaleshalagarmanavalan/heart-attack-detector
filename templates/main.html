@@ -1,18 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Heart Attack Prediction</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
+
 <body>
   <div class="form-container">
     <h2><span class="highlight">MYOCARDIAL INFARCTION</span> PREDICTION MODEL</h2>
+    {% if errors %}
+    <div style="color: red; border: 1px solid red; padding: 10px; margin-bottom: 10px;">
+      <ul>
+        {% for error in errors %}
+        <li>{{ error }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+
     <form method="POST" action="/predict">
       <div class="form-grid">
         <div>
           <label for="age">AGE</label>
-          <input type="number" name="age" placeholder="Enter your AGE" required>
+          <input type="number" name="age" min="25" max="80" placeholder="Enter your AGE" required>
         </div>
         <div>
           <label for="gender">GENDER</label>
@@ -34,76 +46,76 @@
         </div>
         <div>
           <label for="trest_bps">RESTING BP(mm Hg)</label>
-          <input type="number" name="trest_bps" placeholder="Enter your TREST_BPS" required>
+          <input type="number" name="trest_bps" min="100" max="200" placeholder="Enter your TREST_BPS" required>
         </div>
         <div>
           <label for="cholesterol">CHOLESTEROL(mg/dL)</label>
-          <input type="number" name="cholesterol" placeholder="Enter your CHOLESTEROL" required>
+          <input type="number" name="cholesterol" min="125" max="565" placeholder="Enter your CHOLESTEROL" required>
         </div>
         <div>
           <label for="fbs">FASTING BLOOD SUGAR (mg/dL)</label>
           <select name="fbs" required>
-             <option value="">Enter your FBS</option>
-             <option value="0">Normal (≤ 120 mg/dL)</option>
-             <option value="1">High (> 120 mg/dL)</option>
+            <option value="">Enter your FBS</option>
+            <option value="0">Normal (≤ 120 mg/dL)</option>
+            <option value="1">High (> 120 mg/dL)</option>
           </select>
         </div>
         <div>
           <label for="rest_ecg">RESTING ECG</label>
           <select name="rest_ecg" required>
-             <option value="">Enter your REST_ECG</option>
-             <option value="0">Normal</option>
-             <option value="1">ST-T Wave abnormality</option>
-             <option value="2">Left ventricular hypertrophy</option>
+            <option value="">Enter your REST_ECG</option>
+            <option value="0">Normal</option>
+            <option value="1">ST-T Wave abnormality</option>
+            <option value="2">Left ventricular hypertrophy</option>
           </select>
 
         </div>
         <div>
           <label for="heart_rate">HEART RATE</label>
-          <input type="number" name="heart_rate" placeholder="Enter your THALACH" required>
+          <input type="number" name="heart_rate" min="70" max="200" placeholder="Enter your THALACH" required>
         </div>
         <div>
           <label for="exang">EXERCISE INDUCED ANGINA</label>
           <select name="exang" required>
-             <option value="">Enter your EXANG</option>
-             <option value="0">No</option>
-             <option value="1">Yes</option>
+            <option value="">Enter your EXANG</option>
+            <option value="0">No</option>
+            <option value="1">Yes</option>
           </select>
         </div>
         <div>
           <label for="oldpeak">ST DEPRESSION BY EXERCISE</label>
-          <input type="number" step="any" name="oldpeak" placeholder="Enter your OLDPEAK" required>
+          <input type="number" step="any" name="oldpeak" min="0.0" max="6.0" placeholder="Enter your OLDPEAK" required>
         </div>
         <div>
           <label for="slope">SLOPE OF ST SEGMENT</label>
           <select name="slope" required>
-             <option value="">Enter your SLOPE</option>
-             <option value="0">Upsloping</option>
-             <option value="1">Flat</option>
-             <option value="2">Downsloping</option>
+            <option value="">Enter your SLOPE</option>
+            <option value="0">Upsloping</option>
+            <option value="1">Flat</option>
+            <option value="2">Downsloping</option>
           </select>
         </div>
         <div>
           <label for="ca">NO OF MAJOR VESSELS COLORED</label>
           <select name="ca" required>
-             <option value="">Enter your CA</option>
-             <option value="0">Normal</option>
-             <option value="1">1</option>
-             <option value="2">2</option>
-             <option value="3">3</option>
+            <option value="">Enter your CA</option>
+            <option value="0">Normal</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
           </select>
         </div>
         <div style="grid-column: span 2;">
           <label for="thal">THALASSEMIA (THALLIUM TEST RESULT)</label>
           <select name="thal" required>
-             <option value="">Enter your THAL</option>
-             <option value="0">Unknown</option>
-             <option value="1">Normal</option>
-             <option value="2">Fixed</option>
-             <option value="3">Reversible</option>
-          </select>        
+            <option value="">Enter your THAL</option>
+            <option value="0">Unknown</option>
+            <option value="1">Normal</option>
+            <option value="2">Fixed</option>
+            <option value="3">Reversible</option>
+          </select>
         </div>
-        
+
         <div style="grid-column: span 2; text-align: center;">
           <button type="submit" class="submit-btn">Submit</button>
         </div>
@@ -111,4 +123,5 @@
     </form>
   </div>
 </body>
+
 </html>
