@@ -4,7 +4,6 @@ import numpy as np
 
 app = Flask(__name__)
 
-# Load model
 model = joblib.load('CARDIO.joblib')
 
 
